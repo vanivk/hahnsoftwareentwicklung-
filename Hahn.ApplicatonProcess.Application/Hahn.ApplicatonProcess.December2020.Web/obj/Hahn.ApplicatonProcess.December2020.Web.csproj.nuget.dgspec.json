@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj": {}
+    "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj": {}
   },
   "projects": {
-    "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj": {
+    "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
+        "projectUniqueName": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
         "projectName": "Hahn.ApplicatonProcess.December2020.Data",
-        "projectPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
+        "projectPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
         "packagesPath": "C:\\Users\\Vani\\.nuget\\packages\\",
-        "outputPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\obj\\",
+        "outputPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -61,14 +61,14 @@
         }
       }
     },
-    "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj": {
+    "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj",
+        "projectUniqueName": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj",
         "projectName": "Hahn.ApplicatonProcess.December2020.Domain",
-        "projectPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj",
+        "projectPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj",
         "packagesPath": "C:\\Users\\Vani\\.nuget\\packages\\",
-        "outputPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\obj\\",
+        "outputPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -88,8 +88,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj": {
-                "projectPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj"
+              "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj": {
+                "projectPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj"
               }
             }
           }
@@ -132,14 +132,14 @@
         }
       }
     },
-    "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj": {
+    "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj",
+        "projectUniqueName": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj",
         "projectName": "Hahn.ApplicatonProcess.December2020.Web",
-        "projectPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj",
+        "projectPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\Hahn.ApplicatonProcess.December2020.Web.csproj",
         "packagesPath": "C:\\Users\\Vani\\.nuget\\packages\\",
-        "outputPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\obj\\",
+        "outputPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Web\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -159,11 +159,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj": {
-                "projectPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj"
+              "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj": {
+                "projectPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj"
               },
-              "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj": {
-                "projectPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj"
+              "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj": {
+                "projectPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Domain\\Hahn.ApplicatonProcess.December2020.Domain.csproj"
               }
             }
           }

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
+      "projectUniqueName": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
       "projectName": "Hahn.ApplicatonProcess.December2020.Data",
-      "projectPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
+      "projectPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\Hahn.ApplicatonProcess.December2020.Data.csproj",
       "packagesPath": "C:\\Users\\Vani\\.nuget\\packages\\",
-      "outputPath": "F:\\German Interview\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\obj\\",
+      "outputPath": "F:\\German Interview\\hahnsoftwareentwicklung\\Hahn.ApplicatonProcess.Application\\Hahn.ApplicatonProcess.December2020.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
