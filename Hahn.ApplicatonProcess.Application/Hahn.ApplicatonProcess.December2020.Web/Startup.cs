@@ -43,11 +43,11 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 			services.AddDbContext<ApplicantContext>(options => { options.UseInMemoryDatabase("Applicants"); });
 
 			services.AddScoped<IApplicantRepository, ApplicantRepository>();
-			services.AddControllers();
-			//services.AddSwaggerGen(c =>
-			//{
-			//	c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hahn.ApplicatonProcess.December2020.Web", Version = "v1" });
-			//});
+			services.AddControllersWithViews();
+			services.AddSwaggerGen(c =>
+			{
+				c.SwaggerDoc("v1", new OpenApiInfo { Title = "Hahn.ApplicatonProcess.December2020.Web", Version = "v1" });
+			});
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -59,16 +59,29 @@ namespace Hahn.ApplicatonProcess.December2020.Web
 			//	app.UseSwagger();
 			//	app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hahn.ApplicatonProcess.December2020.Web v1"));
 			//}
-
+			if (env.IsDevelopment())
+			{
+				app.UseDeveloperExceptionPage();
+				app.UseSwagger();
+				app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Hahn.ApplicatonProcess.December2020.Web v1"));
+			}
+			else
+			{
+				app.UseExceptionHandler("/Home/Error");
+				// The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+				app.UseHsts();
+			}
 			app.UseHttpsRedirection();
-
+			app.UseStaticFiles();
 			app.UseRouting();
 
 			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{
-				endpoints.MapControllerRoute("default", "{controller=ApplicantModels}/{action=Index}");
+				endpoints.MapControllerRoute(
+					name: "default",
+					pattern: "{controller=ApplicantModels}/{action=Index}/{id?}");
 			});
 		}
 	}

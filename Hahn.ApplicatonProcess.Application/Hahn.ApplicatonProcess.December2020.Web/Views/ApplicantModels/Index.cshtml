@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<Hahn.ApplicatonProcess.December2020.Domain.Model.ApplicantModel>
 
 @{
-    ViewData["Title"] = "Index";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="ApplicantModels/Create">Create New</a>
 </p>
 <table class="table">
     <thead>
