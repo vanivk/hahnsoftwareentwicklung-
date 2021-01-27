@@ -1,4 +1,4 @@
-# Points to run this application
+# To run this application
 
 
 - Prerequisite - VS 2019 or VS Code to read and understand the code
