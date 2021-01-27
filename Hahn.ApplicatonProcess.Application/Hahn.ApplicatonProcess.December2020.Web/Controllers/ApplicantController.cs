@@ -1,126 +1,184 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Hahn.ApplicatonProcess.December2020.Domain.Model;
-using Hahn.ApplicatonProcess.December2020.Domain.Repository;
-using FluentValidation.AspNetCore;
-using Hahn.ApplicatonProcess.December2020.Web.Validator;
+using Hahn.ApplicationProcess.December2020.Domain.Services.ApplicantService;
+using Hahn.ApplicationProcess.December2020.Domain.Services.ApplicantService.Dto;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
-namespace Hahn.ApplicatonProcess.December2020.Web.Controllers
+namespace Hahn.ApplicationProcess.December2020.Web.Controllers
 {
-	[Route("api/[controller]")]
-	[ApiController]
-	public class ApplicantController : ControllerBase
-	{
+    [ApiController]
+    [Route("api/[controller]")]
+    public class ApplicantController : ControllerBase
+    {
+       
+        private readonly IApplicantService _applicantService;
+        private readonly ILogger<ApplicantController> _logger; 
+  
+        public ApplicantController(IApplicantService applicantService,ILogger<ApplicantController> logger)
+        {
+            _applicantService = applicantService;
+            _logger = logger;
+        } 
 
-		private readonly IApplicantRepository _applicantRepository;
-		public ApplicantController(IApplicantRepository applicantRepository)
-		{
-			_applicantRepository = applicantRepository;
-		}
+      
 
+        /// <summary>
+        /// Returns an Applicants by specific ID
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /api/applicant/{id}
+        ///
+        /// </remarks>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        [ProducesResponseType(typeof(ApplicantResponseDto), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<string>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Get(int id)
+        {
+            try
+            {
+                WriteLog(nameof(_applicantService.GetApplicant));
+                var applicant = await _applicantService.GetApplicant(id);
+                return Ok(applicant);
+            }
+            catch (Exception ex)
+            {
+                WriteErrorLog(ex, nameof(_applicantService.GetApplicant));
+                return StatusCode(500, ex);
+            }
+        }
 
-		// GET: api/<ApplicantController>
-		[HttpGet]
-		public IActionResult GetAllApplicants()
-		{
-			var data = _applicantRepository.GetAllApplicants();
+        
 
-			return Ok(data);
-		}
+        /// <summary>
+        /// Returns a list of Applicants
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     GET /api/applicant
+        ///
+        /// </remarks>
+        /// <returns></returns>
+        [HttpGet]
+        [ProducesResponseType(typeof(List<ApplicantResponseDto>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<string>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> GetList()
+        {
+            try
+            {
+                WriteLog(nameof(_applicantService.GetApplicantList));
+                var items = await _applicantService.GetApplicantList();
+                return Ok(items);
+            }
+            catch (Exception ex)
+            {
+                WriteErrorLog(ex, nameof(_applicantService.GetApplicantList));
+                return StatusCode(500, ex);
+            }
+        }
 
-		// GET api/<ApplicantController>/5
-		[HttpGet]
-		[Route("GetApplicant")]
-		public async Task<IActionResult> GetApplicant(int id)
-		{
-			var applicant = await _applicantRepository.GetApplicant(id);
+        ///<summary>
+        /// Creates an applicant.
+        ///</summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Consumes("application/json")]
+        [ProducesResponseType(typeof(ApplicantResponseDto), StatusCodes.Status201Created)]
+        [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
+        public IActionResult Post(ApplicantInputDto model)
+        {
+            try
+            {
+                if (!ModelState.IsValid)
+                {
+                    return ValidationProblem(ModelState);
+                }
 
-			return Ok(applicant);
-		}
+                WriteLog(nameof(_applicantService.InsertApplicant));
+                var result = _applicantService.InsertApplicant(model);
+                return Ok(StatusCode(201, result));
+            }
+            catch (Exception ex)
+            {
+                WriteErrorLog(ex, nameof(_applicantService.InsertApplicant));
+                return StatusCode(500, ex);
+            }
+        }
 
-		// POST api/<ApplicantController>
-		[HttpPost]
-		[Route("CreateApplicant")]
-		public async Task<IActionResult> CreateApplicant([FromBody] ApplicantModelDto applicantModel)
-		{
-			var validator = new ApplicantModelValidator();
-			var results = validator.Validate(applicantModel);
-			if (results.IsValid)
-			{
-				ApplicantModel obj = new ApplicantModel();
-				obj.Name = applicantModel.Name;
-				obj.FamilyName = applicantModel.FamilyName;
-				obj.Age = applicantModel.Age;
-				obj.Address = applicantModel.Address;
-				obj.EMailAddress = applicantModel.EMailAddress;
-				obj.CountryofOrigin = applicantModel.CountryofOrigin;
-				obj.Hired = applicantModel.Hired;
-				var postapplicant = await _applicantRepository.Create(obj);
+        ///<summary>
+        /// Updates an applicant.
+        ///</summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        [HttpPut("{id}")]
+        [Consumes("application/json")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<string>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Put(int id, ApplicantInputDto model)
+        {
+            try
+            {
+                if (id != model.Id)
+                    return BadRequest();
 
-				if (postapplicant > 0)
-				{
-					return Ok(postapplicant);
-				}
-				else
-				{
-					return BadRequest();
-				}
-			}
-			return BadRequest();
-		}
+                if (!ModelState.IsValid)
+                {
+                    return ValidationProblem(ModelState);
+                }
 
-		// PUT api/<ApplicantController>/5
-		[HttpPut]
-		[Route("UpdateApplicant")]
-		public async Task<IActionResult> UpdateApplicant(int id, ApplicantModelDto applicantModel)
-		{
-			var validator = new ApplicantModelValidator();
-			var results = validator.Validate(applicantModel);
-			if (results.IsValid)
-			{
-				ApplicantModel obj = new ApplicantModel();
-				obj.Name = applicantModel.Name;
-				obj.FamilyName = applicantModel.FamilyName;
-				obj.Age = applicantModel.Age;
-				obj.Address = applicantModel.Address;
-				obj.EMailAddress = applicantModel.EMailAddress;
-				obj.CountryofOrigin = applicantModel.CountryofOrigin;
-				obj.Hired = applicantModel.Hired;
-				var update_applicant = await _applicantRepository.Update(id, obj);
+                WriteLog(nameof(_applicantService.UpdateApplicant));
+                var result = await _applicantService.UpdateApplicant(model);
+                return Ok(StatusCode(201, result));
+            }
+            catch (Exception ex)
+            {
+                WriteErrorLog(ex, nameof(_applicantService.UpdateApplicant));
+                return StatusCode(500, ex);
+            }
+        }
 
+        ///<summary>
+        /// Deletes an applicant by ID.
+        ///</summary> 
+        /// <param name="id">id of the applicant</param>
+        /// <returns></returns>
+        [HttpDelete("{id}")]
+        [ProducesResponseType(typeof(bool), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(List<string>), StatusCodes.Status400BadRequest)]
+        public async Task<IActionResult> Delete(int id)
+        {
+            try
+            {
+                WriteLog(nameof(_applicantService.DeleteApplicant));
+                var result = await _applicantService.DeleteApplicant(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                WriteErrorLog(ex, nameof(_applicantService.DeleteApplicant));
+                return StatusCode(500, ex);
+            }
+        }
 
-				if (update_applicant > 0)
-				{
-					return Ok(update_applicant);
-				}
-				else
-				{
-					return BadRequest();
-				}
-			}
-			return BadRequest();
-		}
+      
+        private void WriteErrorLog(Exception exception, string methodName)
+        {
+            _logger.LogError("an error occurred on action \"{methodName}\" on datetime: {date}, Ex: {ex}", methodName,DateTime.Now, exception);
+        }
 
-		// DELETE api/<ApplicantController>/5
-		[HttpDelete]
-		[Route("DeleteApplicant")]
-		public async Task<IActionResult> DeleteApplicant(int id)
-		{
-			var applicant = await _applicantRepository.Delete(id);
-
-			if (applicant > 0)
-			{
-				return Ok("Deleted");
-			}
-			else
-			{
-				return BadRequest();
-			}
-		}
-	}
+        private void WriteLog(string methodName)
+        {
+            _logger.LogError("\"{methodName}\" fired on datetime: {date}", methodName,DateTime.Now);
+        }
+        
+      
+    }
 }

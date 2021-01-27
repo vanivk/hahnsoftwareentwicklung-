@@ -1,0 +1,9 @@
+language: csharp
+# dist: trusty
+mono: none
+dist: bionic
+dotnet: 5.0.102
+sudo: required
+script:
+  - dotnet restore
+  - dotnet build
